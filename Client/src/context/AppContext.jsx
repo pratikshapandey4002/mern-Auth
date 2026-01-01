@@ -6,12 +6,12 @@ export const AppContext = createContext()
 
 export const AppContextProvider = (props) => {
 
-    // Helper: Always plural for defaults
+    
     axios.defaults.withCredentials = true;
 
     const backendUrl = import.meta.env.VITE_BACKEND_URL
     
-    // FIX: Changed 'setisLoggedin' to 'setIsLoggedin' (Capital I)
+    
     const [isLoggedin, setIsLoggedin] = useState(false);
     const [userData, setUserData] = useState(false);
 
@@ -39,7 +39,7 @@ export const AppContextProvider = (props) => {
 
     const value = {
         backendUrl,
-        isLoggedin, setIsLoggedin, // Now this matches what you use in Login.jsx
+        isLoggedin, setIsLoggedin, 
         userData, setUserData,
         getUserData
     }
