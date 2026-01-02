@@ -1,10 +1,12 @@
-import { createContext, useState } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 
 export const AppContext = createContext()
 
 export const AppContextProvider = (props) => {
+
+    axios.defaults.withCredentials = true;
 
     
     axios.defaults.withCredentials = true;
@@ -35,6 +37,10 @@ export const AppContextProvider = (props) => {
             toast.error(error.message)
         }
     }
+
+    useEffect(() => {
+        getAuthState();
+    })
 
 
     const value = {
